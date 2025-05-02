@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:paper_trail/pages/main_page.dart';
 
 class Selectionpage extends StatefulWidget {
   const Selectionpage({super.key});
@@ -61,7 +62,7 @@ class _SelectionpageState extends State<Selectionpage> {
                 fit: StackFit.expand,
                 children: [
                   Image.asset(
-                    'lib/assets/images/library.jpg', 
+                    'lib/assets/images/library.jpg',
                     fit: BoxFit.cover,
                   ),
                   Container(
@@ -82,7 +83,7 @@ class _SelectionpageState extends State<Selectionpage> {
               centerTitle: true,
             ),
           ),
-          
+
           SliverFillRemaining(
             hasScrollBody: true,
             child: Padding(
@@ -156,7 +157,20 @@ class _SelectionpageState extends State<Selectionpage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (seletedSem != null) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => MainPage(
+                                      course: selectedCourses!,
+                                      semester: seletedSem!,
+                                    ),
+                              ),
+                            );
+                          }
+                        },
                         child: Text('           Next           '),
                       ),
                     ],
