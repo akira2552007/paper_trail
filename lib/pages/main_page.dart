@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:paper_trail/mainpages/books.dart';
-import 'package:paper_trail/mainpages/notes.dart';
-import 'package:paper_trail/mainpages/pyq.dart';
-import 'package:paper_trail/mainpages/syllabus.dart';
 
 class MainPage extends StatefulWidget {
   final String course;
@@ -16,7 +12,8 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   @override
-  final PageController _controller = PageController();
+  int myindex = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -28,11 +25,31 @@ class _MainPageState extends State<MainPage> {
           style: GoogleFonts.titanOne(color: Colors.white),
         ),
       ),
-      body: Stack(
-        children: [
-          PageView(
-            controller: _controller,
-            children: [Books(), Syllabus(), Pyq(), Notes()],
+      body: Container(child: Center()),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          setState(() {
+            myindex = index;
+          });
+        },
+        type: BottomNavigationBarType.shifting,
+        currentIndex: myindex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+
+            label: 'Home',
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: 'Books',
+            backgroundColor: Colors.redAccent,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.note),
+            label: 'Notes',
+            backgroundColor: Colors.grey,
           ),
         ],
       ),
