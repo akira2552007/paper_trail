@@ -27,7 +27,7 @@ class _MainPageState extends State<MainPage> {
           style: GoogleFonts.titanOne(color: Colors.white),
         ),
       ),
-      body: getBodyContent(), // Use the if-else method to determine the body content
+      body: getBodyContent(), 
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
           setState(() {
@@ -62,10 +62,10 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  // Method to return the correct body widget based on the selected tab
+ 
   Widget getBodyContent() {
     if (myindex == 0) {
-      return Center(child: Text("Syllabus Coming Soon")); // Placeholder for syllabus
+      return Center(child: Text("Syllabus Coming Soon")); 
     } else if (myindex == 1) {
       return Books(course: widget.course, semester: widget.semester); // Show Books
     } else if (myindex == 2) {

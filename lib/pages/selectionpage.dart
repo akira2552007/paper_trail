@@ -11,8 +11,8 @@ class Selectionpage extends StatefulWidget {
 
 class _SelectionpageState extends State<Selectionpage> {
   Map<String, List<String>> departmentCourses = {
-    'Computer Science': ['BCA', 'BTech'],
-    'Science': ['BSc'],
+    'Computer Science': ['BCA',],
+    'Business': ['BBA'],
   };
   Map<String, List<String>> courseSemesters = {
     'BCA': [
@@ -23,17 +23,8 @@ class _SelectionpageState extends State<Selectionpage> {
       'Semester 5',
       'Semester 6',
     ],
-    'BTech': [
-      'Semester 1',
-      'Semester 2',
-      'Semester 3',
-      'Semester 4',
-      'Semester 5',
-      'Semester 6',
-      'Semester 7',
-      'Semester 8',
-    ],
-    'BSc': [
+    
+    'BBA': [
       'Semester 1',
       'Semester 2',
       'Semester 3',
