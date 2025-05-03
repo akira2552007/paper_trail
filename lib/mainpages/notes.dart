@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 
-class Notes extends StatefulWidget {
-  const Notes({super.key});
+class Notes extends StatelessWidget {
+  final String course;
+  final String semester;
 
-  @override
-  State<Notes> createState() => _NotesState();
-}
+  // Constructor to receive course and semester
+  const Notes({super.key, required this.course, required this.semester});
 
-class _NotesState extends State<Notes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Notes'),
-      ),
-      body: Container(
-        color: Colors.red,
+    
+      body: Center(
+        child: Text("Here are the notes for $course in $semester."),
       ),
     );
   }

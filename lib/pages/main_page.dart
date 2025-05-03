@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:paper_trail/mainpages/books.dart';
+import 'package:paper_trail/mainpages/notes.dart';
+import 'package:paper_trail/mainpages/pyq.dart';
 
 class MainPage extends StatefulWidget {
   final String course;
@@ -11,13 +14,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  @override
   int myindex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // FIXED: moved AppBar to appBar slot
         backgroundColor: Colors.blue,
         title: Text(
           '${widget.course} - ${widget.semester}',
@@ -25,7 +27,7 @@ class _MainPageState extends State<MainPage> {
           style: GoogleFonts.titanOne(color: Colors.white),
         ),
       ),
-      body: Container(child: Center()),
+      body: getBodyContent(), // Use the if-else method to determine the body content
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
           setState(() {
@@ -36,9 +38,8 @@ class _MainPageState extends State<MainPage> {
         currentIndex: myindex,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-
-            label: 'Home',
+            icon: Icon(Icons.book_online),
+            label: 'Syllabus',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
@@ -51,8 +52,28 @@ class _MainPageState extends State<MainPage> {
             label: 'Notes',
             backgroundColor: Colors.grey,
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.question_answer),
+            label: 'Pyqs',
+            backgroundColor: Colors.yellow,
+          ),
         ],
       ),
     );
+  }
+
+  // Method to return the correct body widget based on the selected tab
+  Widget getBodyContent() {
+    if (myindex == 0) {
+      return Center(child: Text("Syllabus Coming Soon")); // Placeholder for syllabus
+    } else if (myindex == 1) {
+      return Books(course: widget.course, semester: widget.semester); // Show Books
+    } else if (myindex == 2) {
+      return Notes(course: widget.course, semester: widget.semester); // Show Notes
+    } else if (myindex == 3) {
+      return Pyq(course: widget.course, semester: widget.semester);   // Show Pyqs
+    } else {
+      return Center(child: Text("Unknown Tab"));
+    }
   }
 }

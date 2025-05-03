@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
-class Pyq extends StatefulWidget {
-  const Pyq({super.key});
+class Pyq extends StatelessWidget {
+  final String course;
+  final String semester;
 
-  @override
-  State<Pyq> createState() => _PyqState();
-}
+  // Constructor to receive course and semester
+  const Pyq({super.key, required this.course, required this.semester});
 
-class _PyqState extends State<Pyq> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Books')),
-      body: Container(color: Colors.green),
+      body: Center(
+        child: Text(
+          "Here are the previous year questions for $course in $semester.",
+        ),
+      ),
     );
   }
 }
