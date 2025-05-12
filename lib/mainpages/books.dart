@@ -22,7 +22,6 @@ class Books extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> bookWidgets = [];
 
-    
     if (course == 'BCA' && semester == 'Semester 1') {
       bookWidgets = [
         _bookTile(
@@ -37,6 +36,11 @@ class Books extends StatelessWidget {
           'Office Automation Tools',
           'https://drive.google.com/file/d/1_bRxdfW3r9DT9CuiKRaGyk78y3gawkWh/view?usp=sharing',
         ),
+        _bookTile(
+          'Applied English',
+          'https://drive.google.com/file/d/1sRPUeyQ9IEh9ExXo_r6hd9BabVYY3Frp/view?usp=sharing',
+        ),
+        _bookTile('Maths-1', ''),
       ];
     } else if (course == 'BCA' && semester == 'Semester 2') {
       bookWidgets = [
